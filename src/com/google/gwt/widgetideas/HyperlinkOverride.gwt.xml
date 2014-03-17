@@ -1,0 +1,24 @@
+<module>
+  <inherits name="com.google.gwt.core.Core"/>
+  <inherits name="com.google.gwt.user.UserAgent"/>
+
+  <replace-with class="com.google.gwt.widgetideas.client.impl.HyperlinkOverrideImplOpera">
+    <when-type-is class="com.google.gwt.widgetideas.client.impl.HyperlinkOverrideImpl"/>
+    <when-property-is name="user.agent" value="opera"/>
+  </replace-with>
+
+  <replace-with class="com.google.gwt.widgetideas.client.impl.HyperlinkOverrideImplSafari">
+    <when-type-is class="com.google.gwt.widgetideas.client.impl.HyperlinkOverrideImpl"/>
+    <when-property-is name="user.agent" value="safari"/>
+  </replace-with>
+
+  <replace-with class="com.google.gwt.widgetideas.client.impl.HyperlinkOverrideImplIE">
+    <when-type-is class="com.google.gwt.widgetideas.client.impl.HyperlinkOverrideImpl"/>
+    <any>
+      <when-property-is name="user.agent" value="ie6"/>
+      <when-property-is name="user.agent" value="ie8"/>
+    </any>
+  </replace-with>
+  
+  <inherits name='com.google.gwt.widgetideas.WidgetBase'/>
+</module>
