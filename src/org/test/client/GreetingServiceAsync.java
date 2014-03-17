@@ -2,7 +2,7 @@ package org.test.client;
 
 import com.google.gwt.user.client.rpc.AsyncCallback;
 
-import de.mfo.jsurfer.rendering.cpu.CPUAlgebraicSurfaceRenderer;
+import de.mfo.jsurf.rendering.cpu.CPUAlgebraicSurfaceRenderer;
 
 /**
  * The async counterpart of <code>GreetingService</code>.

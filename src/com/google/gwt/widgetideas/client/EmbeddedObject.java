@@ -15,12 +15,12 @@
  */
 package com.google.gwt.widgetideas.client;
 
-import com.google.gwt.user.client.DOM;
-import com.google.gwt.user.client.ui.Widget;
-
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+
+import com.google.gwt.user.client.DOM;
+import com.google.gwt.user.client.ui.Widget;
 
 /**
  * An embedded object, such as a flash application.

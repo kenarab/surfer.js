@@ -15,15 +15,15 @@
  */
 package com.google.gwt.widgetideas.table.client;
 
-import com.google.gwt.user.client.rpc.IsSerializable;
-import com.google.gwt.widgetideas.table.client.TableModel.ColumnSortList;
-import com.google.gwt.widgetideas.table.client.TableModel.Response;
-
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
+
+import com.google.gwt.user.client.rpc.IsSerializable;
+import com.google.gwt.widgetideas.table.client.TableModel.ColumnSortList;
+import com.google.gwt.widgetideas.table.client.TableModel.Response;
 
 /**
  * A helper class that provides all of the inner classes used by

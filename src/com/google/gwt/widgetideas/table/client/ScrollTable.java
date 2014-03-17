@@ -15,6 +15,13 @@
  */
 package com.google.gwt.widgetideas.table.client;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.Command;
 import com.google.gwt.user.client.DOM;
@@ -36,13 +43,6 @@ import com.google.gwt.widgetideas.client.ResizableWidget;
 import com.google.gwt.widgetideas.client.ResizableWidgetCollection;
 import com.google.gwt.widgetideas.table.client.TableModel.ColumnSortList;
 import com.google.gwt.widgetideas.table.client.overrides.OverrideDOM;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 /**
  * <p>

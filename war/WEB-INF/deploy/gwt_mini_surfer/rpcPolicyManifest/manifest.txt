@@ -1,3 +1,3 @@
 # Module gwt_mini_surfer
 # RPC service class, partial path of RPC policy file
-org.test.client.GreetingService, 2EE76919346F40580D6F819E306CDC51.gwt.rpc
+org.test.client.GreetingService, 083B46D106F56FBBDE026761654B6ADA.gwt.rpc

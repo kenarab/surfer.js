@@ -16,6 +16,8 @@
 
 package com.google.gwt.widgetideas.table.client;
 
+import java.util.Iterator;
+
 import com.google.gwt.core.client.Duration;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.DeferredCommand;
@@ -23,8 +25,6 @@ import com.google.gwt.user.client.Element;
 import com.google.gwt.user.client.IncrementalCommand;
 import com.google.gwt.widgetideas.table.client.TableModelHelper.Request;
 import com.google.gwt.widgetideas.table.client.overrides.HTMLTable;
-
-import java.util.Iterator;
 
 /**
  * Enables bulk rendering of tables. Each subclass that needs special handling

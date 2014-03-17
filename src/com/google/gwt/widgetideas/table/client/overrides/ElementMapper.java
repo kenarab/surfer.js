@@ -16,13 +16,13 @@
 
 package com.google.gwt.widgetideas.table.client.overrides;
 
-import com.google.gwt.user.client.Element;
-import com.google.gwt.user.client.ui.UIObject;
-import com.google.gwt.user.client.ui.Widget;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
+
+import com.google.gwt.user.client.Element;
+import com.google.gwt.user.client.ui.UIObject;
+import com.google.gwt.user.client.ui.Widget;
 
 /**
  * Creates a mapping from elements to their associated ui objects.

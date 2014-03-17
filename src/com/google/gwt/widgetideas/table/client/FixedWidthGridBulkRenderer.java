@@ -16,11 +16,11 @@
 
 package com.google.gwt.widgetideas.table.client;
 
+import java.util.Iterator;
+
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.Element;
 import com.google.gwt.widgetideas.table.client.overrides.HTMLTable;
-
-import java.util.Iterator;
 
 /**
  * Helper class to bulk load {@link FixedWidthGrid} tables.

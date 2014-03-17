@@ -15,16 +15,16 @@
  */
 package com.google.gwt.widgetideas.table.client;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
 import com.google.gwt.dom.client.InputElement;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.Element;
 import com.google.gwt.user.client.Event;
 import com.google.gwt.widgetideas.table.client.overrides.Grid;
 import com.google.gwt.widgetideas.table.client.overrides.OverrideDOM;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
 
 /**
  * A variation of the {@link Grid} that supports row or cell hovering and row

@@ -15,6 +15,9 @@
  */
 package com.google.gwt.widgetideas.client;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.MouseDownEvent;
 import com.google.gwt.event.dom.client.MouseDownHandler;
@@ -29,9 +32,6 @@ import com.google.gwt.user.client.ui.AbstractImagePrototype;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.ImageBundle;
 import com.google.gwt.user.client.ui.Widget;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * The {@link Spinner} provide two arrows for in- and decreasing values. A

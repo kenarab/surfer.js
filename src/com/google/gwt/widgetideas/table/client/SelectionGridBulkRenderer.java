@@ -15,10 +15,10 @@
  */
 package com.google.gwt.widgetideas.table.client;
 
+import java.util.Iterator;
+
 import com.google.gwt.widgetideas.table.client.SelectionGrid.SelectionPolicy;
 import com.google.gwt.widgetideas.table.client.overrides.Grid;
-
-import java.util.Iterator;
 
 /**
  * Allows bulk rendering of {@link SelectionGrid}s.

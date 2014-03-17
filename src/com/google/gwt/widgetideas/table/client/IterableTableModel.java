@@ -15,9 +15,9 @@
  */
 package com.google.gwt.widgetideas.table.client;
 
-import com.google.gwt.widgetideas.table.client.TableModelHelper.Request;
-
 import java.util.Iterator;
+
+import com.google.gwt.widgetideas.table.client.TableModelHelper.Request;
 
 /**
  * A class to retrieve row data to be used in a table.
