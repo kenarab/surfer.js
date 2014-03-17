@@ -15,6 +15,9 @@
  */
 package com.google.gwt.widgetideas.graphics.client.impl;
 
+import java.util.ArrayList;
+import java.util.Stack;
+
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.ImageElement;
 import com.google.gwt.dom.client.Style.Overflow;
@@ -24,9 +27,6 @@ import com.google.gwt.user.client.Element;
 import com.google.gwt.widgetideas.graphics.client.CanvasGradient;
 import com.google.gwt.widgetideas.graphics.client.GWTCanvas;
 import com.google.gwt.widgetideas.graphics.client.JSOStack;
-
-import java.util.ArrayList;
-import java.util.Stack;
 
 /**
  * Deferred binding implementation of GWTCanvas for IE6. It is an implementation

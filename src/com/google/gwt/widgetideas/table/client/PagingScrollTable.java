@@ -15,6 +15,13 @@
  */
 package com.google.gwt.widgetideas.table.client;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.NoSuchElementException;
+
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.gwt.user.client.ui.SourcesTableEvents;
@@ -27,13 +34,6 @@ import com.google.gwt.widgetideas.table.client.TableModel.Callback;
 import com.google.gwt.widgetideas.table.client.TableModel.ColumnSortList;
 import com.google.gwt.widgetideas.table.client.TableModel.Response;
 import com.google.gwt.widgetideas.table.client.TableModelHelper.Request;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.NoSuchElementException;
 
 /**
  * A {@link ScrollTable} that acts as a view for an underlying

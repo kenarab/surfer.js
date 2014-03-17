@@ -15,13 +15,13 @@
  */
 package com.google.gwt.widgetideas.table.client;
 
-import com.google.gwt.widgetideas.table.client.TableModelHelper.Request;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
+
+import com.google.gwt.widgetideas.table.client.TableModelHelper.Request;
 
 /**
  * A {@link TableModel} that wraps another {@link TableModel} and adds its own

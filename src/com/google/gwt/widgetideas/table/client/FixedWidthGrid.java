@@ -15,6 +15,9 @@
  */
 package com.google.gwt.widgetideas.table.client;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.Command;
 import com.google.gwt.user.client.DOM;
@@ -22,9 +25,6 @@ import com.google.gwt.user.client.DeferredCommand;
 import com.google.gwt.user.client.Element;
 import com.google.gwt.user.client.Event;
 import com.google.gwt.widgetideas.table.client.overrides.OverrideDOM;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * A variation of the

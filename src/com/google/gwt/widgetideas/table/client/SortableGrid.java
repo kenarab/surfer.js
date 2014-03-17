@@ -15,13 +15,13 @@
  */
 package com.google.gwt.widgetideas.table.client;
 
+import java.util.Map;
+
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.Element;
 import com.google.gwt.widgetideas.table.client.TableModel.ColumnSortInfo;
 import com.google.gwt.widgetideas.table.client.TableModel.ColumnSortList;
 import com.google.gwt.widgetideas.table.client.overrides.OverrideDOM;
-
-import java.util.Map;
 
 /**
  * A variation of the

@@ -15,6 +15,9 @@
  */
 package com.google.gwt.widgetideas.client;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.Element;
@@ -28,9 +31,6 @@ import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.ImageBundle;
 import com.google.gwt.user.client.ui.KeyboardListener;
 import com.google.gwt.user.client.ui.SourcesChangeEvents;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * A widget that allows the user to select a value within a range of possible

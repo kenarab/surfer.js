@@ -16,11 +16,11 @@
 
 package com.google.gwt.widgetideas.table.client;
 
-import com.google.gwt.user.client.ui.Widget;
-import com.google.gwt.widgetideas.table.client.overrides.FlexTable;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import com.google.gwt.user.client.ui.Widget;
+import com.google.gwt.widgetideas.table.client.overrides.FlexTable;
 
 /**
  * A {@link PreloadedTable} allow users to configure a table with HTML cell data

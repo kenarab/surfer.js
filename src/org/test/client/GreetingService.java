@@ -3,7 +3,7 @@ package org.test.client;
 import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 
-import de.mfo.jsurfer.rendering.cpu.CPUAlgebraicSurfaceRenderer;
+import de.mfo.jsurf.rendering.cpu.CPUAlgebraicSurfaceRenderer;
 
 /**
  * The client side stub for the RPC service.

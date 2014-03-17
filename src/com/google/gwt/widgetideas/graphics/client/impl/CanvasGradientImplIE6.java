@@ -15,10 +15,10 @@
  */
 package com.google.gwt.widgetideas.graphics.client.impl;
 
+import java.util.ArrayList;
+
 import com.google.gwt.widgetideas.graphics.client.CanvasGradient;
 import com.google.gwt.widgetideas.graphics.client.Color;
-
-import java.util.ArrayList;
 
 /**
  * Gradients for IE6 implementation need some extra meta info.

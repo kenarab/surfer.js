@@ -15,12 +15,12 @@
  */
 package com.google.gwt.widgetideas.table.client;
 
-import com.google.gwt.user.client.rpc.IsSerializable;
-import com.google.gwt.widgetideas.table.client.TableModelHelper.Request;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
+import com.google.gwt.user.client.rpc.IsSerializable;
+import com.google.gwt.widgetideas.table.client.TableModelHelper.Request;
 
 /**
  * A class to retrieve row data to be used in a table.

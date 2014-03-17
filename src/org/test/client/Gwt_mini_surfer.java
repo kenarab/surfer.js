@@ -18,9 +18,9 @@ import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
-import de.mfo.jsurfer.CanvasImageGenerator;
-import de.mfo.jsurfer.GwtSurferExperiment;
-import de.mfo.jsurfer.rendering.cpu.CPUAlgebraicSurfaceRenderer;
+import de.mfo.jsurf.CanvasImageGenerator;
+import de.mfo.jsurf.GwtSurferExperiment;
+import de.mfo.jsurf.rendering.cpu.CPUAlgebraicSurfaceRenderer;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>.

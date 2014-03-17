@@ -15,9 +15,9 @@
  */
 package com.google.gwt.widgetideas.table.client;
 
-import com.google.gwt.widgetideas.table.client.overrides.Grid;
-
 import java.util.Iterator;
+
+import com.google.gwt.widgetideas.table.client.overrides.Grid;
 
 /**
  * Allows bulk rendering of {@link Grid}s.

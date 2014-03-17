@@ -7,7 +7,7 @@ import clonefactories.TorusFactory;
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 
-import de.mfo.jsurfer.rendering.cpu.CPUAlgebraicSurfaceRenderer;
+import de.mfo.jsurf.rendering.cpu.CPUAlgebraicSurfaceRenderer;
 
 /**
  * The server side implementation of the RPC service.

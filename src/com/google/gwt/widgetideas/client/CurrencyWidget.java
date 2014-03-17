@@ -40,11 +40,11 @@ package com.google.gwt.widgetideas.client;
  */
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.i18n.client.CurrencyData;
+import com.google.gwt.i18n.client.CurrencyList;
 import com.google.gwt.i18n.client.LocaleInfo;
 import com.google.gwt.i18n.client.NumberFormat;
 import com.google.gwt.i18n.client.constants.NumberConstants;
-import com.google.gwt.i18n.client.CurrencyData;
-import com.google.gwt.i18n.client.CurrencyList;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FocusListener;
 import com.google.gwt.user.client.ui.HorizontalPanel;

@@ -15,10 +15,10 @@
  */
 package com.google.gwt.widgetideas.table.client;
 
-import com.google.gwt.widgetideas.table.client.TableModelHelper.Request;
-
 import java.util.Iterator;
 import java.util.NoSuchElementException;
+
+import com.google.gwt.widgetideas.table.client.TableModelHelper.Request;
 
 /**
  * A {@link TableModel} used when the data source can be accessed synchronously.

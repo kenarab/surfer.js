@@ -15,9 +15,9 @@
  */
 package com.google.gwt.widgetideas.table.client;
 
-import com.google.gwt.widgetideas.table.client.TableModel.ColumnSortList;
-
 import java.util.ArrayList;
+
+import com.google.gwt.widgetideas.table.client.TableModel.ColumnSortList;
 
 /**
  * A helper class for implementers of the {@link SourceSortableColumnsEvents}

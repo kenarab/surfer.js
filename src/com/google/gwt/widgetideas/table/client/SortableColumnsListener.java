@@ -15,9 +15,9 @@
  */
 package com.google.gwt.widgetideas.table.client;
 
-import com.google.gwt.widgetideas.table.client.TableModel.ColumnSortList;
-
 import java.util.EventListener;
+
+import com.google.gwt.widgetideas.table.client.TableModel.ColumnSortList;
 
 /**
  * Event listener interface for column sort events.

@@ -15,12 +15,12 @@
  */
 package com.google.gwt.widgetideas.table.client;
 
+import java.util.Iterator;
+
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.ui.RadioButton;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
-
-import java.util.Iterator;
 
 /**
  * A cell editor that lists its options as radio buttons.

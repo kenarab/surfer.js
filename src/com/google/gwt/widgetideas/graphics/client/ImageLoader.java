@@ -15,9 +15,9 @@
  */
 package com.google.gwt.widgetideas.graphics.client;
 
-import com.google.gwt.dom.client.ImageElement;
-
 import java.util.ArrayList;
+
+import com.google.gwt.dom.client.ImageElement;
 
 /**
  * Provides a mechanism for deferred execution of a callback 
