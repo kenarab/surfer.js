@@ -25,7 +25,7 @@ import de.mfo.jsurf.parser.AlgebraicExpressionParser;
  *
  * @author Christian Stussak <christian at knorf.de>
  */
-public abstract class AlgebraicSurfaceRenderer implements Serializable
+public abstract class JsAlgebraicSurfaceRenderer implements Serializable
 {
 
     public static final int MAX_LIGHTS= 8;
@@ -115,7 +115,7 @@ public abstract class AlgebraicSurfaceRenderer implements Serializable
     private Matrix4d surfaceTransform;
     private Color3f backgroundColor;
 
-    public AlgebraicSurfaceRenderer()
+    public JsAlgebraicSurfaceRenderer()
     {
 	this.parameterSubstitutor= new Simplificator();
 	this.camera= new Camera();
@@ -161,16 +161,7 @@ public abstract class AlgebraicSurfaceRenderer implements Serializable
 
     public void setSurfaceFamily(String expression) throws Exception
     {
-	String a= "{\"@id\":0,\"secondOperand\":{\"@id\":1,\"secondOperand\":{\"@id\":2,\"secondOperand\":{\"@id\":3,\"exponent\":2,\"base\":{\"@id\":4,\"class\":\"de.mfo.jsurfer.algebra.PolynomialVariable\",\"variable\":\"y\"},\"class\":\"de.mfo.jsurfer.algebra.PolynomialPower\"},\"class\":\"de.mfo.jsurfer.algebra.PolynomialAddition\",\"firstOperand\":{\"@id\":5,\"exponent\":2,\"base\":{\"@id\":6,\"class\":\"de.mfo.jsurfer.algebra.PolynomialVariable\",\"variable\":\"x\"},\"class\":\"de.mfo.jsurfer.algebra.PolynomialPower\"}},\"class\":\"de.mfo.jsurfer.algebra.PolynomialMultiplication\",\"firstOperand\":{\"@id\":7,\"secondOperand\":{\"@id\":8,\"secondOperand\":{\"@id\":9,\"value\":2.0,\"class\":\"de.mfo.jsurfer.algebra.DoubleValue\"},\"class\":\"de.mfo.jsurfer.algebra.DoubleBinaryOperation\",\"firstOperand\":{\"@id\":10,\"name\":\"b\",\"class\":\"de.mfo.jsurfer.algebra.DoubleVariable\"},\"operator\":\"pow\"},\"class\":\"de.mfo.jsurfer.algebra.DoubleBinaryOperation\",\"firstOperand\":{\"@id\":11,\"value\":4.0,\"class\":\"de.mfo.jsurfer.algebra.DoubleValue\"},\"operator\":\"mult\"}},\"class\":\"de.mfo.jsurfer.algebra.PolynomialSubtraction\",\"firstOperand\":{\"@id\":12,\"exponent\":2,\"base\":{\"@id\":13,\"secondOperand\":{\"@id\":14,\"secondOperand\":{\"@id\":15,\"value\":2.0,\"class\":\"de.mfo.jsurfer.algebra.DoubleValue\"},\"class\":\"de.mfo.jsurfer.algebra.DoubleBinaryOperation\",\"firstOperand\":{\"@id\":16,\"name\":\"b\",\"class\":\"de.mfo.jsurfer.algebra.DoubleVariable\"},\"operator\":\"pow\"},\"class\":\"de.mfo.jsurfer.algebra.PolynomialSubtraction\",\"firstOperand\":{\"@id\":17,\"secondOperand\":{\"@id\":18,\"secondOperand\":{\"@id\":19,\"value\":2.0,\"class\":\"de.mfo.jsurfer.algebra.DoubleValue\"},\"class\":\"de.mfo.jsurfer.algebra.DoubleBinaryOperation\",\"firstOperand\":{\"@id\":20,\"name\":\"a\",\"class\":\"de.mfo.jsurfer.algebra.DoubleVariable\"},\"operator\":\"pow\"},\"class\":\"de.mfo.jsurfer.algebra.PolynomialAddition\",\"firstOperand\":{\"@id\":21,\"secondOperand\":{\"@id\":22,\"exponent\":2,\"base\":{\"@id\":23,\"class\":\"de.mfo.jsurfer.algebra.PolynomialVariable\",\"variable\":\"z\"},\"class\":\"de.mfo.jsurfer.algebra.PolynomialPower\"},\"class\":\"de.mfo.jsurfer.algebra.PolynomialAddition\",\"firstOperand\":{\"@id\":24,\"secondOperand\":{\"@id\":25,\"exponent\":2,\"base\":{\"@id\":26,\"class\":\"de.mfo.jsurfer.algebra.PolynomialVariable\",\"variable\":\"y\"},\"class\":\"de.mfo.jsurfer.algebra.PolynomialPower\"},\"class\":\"de.mfo.jsurfer.algebra.PolynomialAddition\",\"firstOperand\":{\"@id\":27,\"exponent\":2,\"base\":{\"@id\":28,\"class\":\"de.mfo.jsurfer.algebra.PolynomialVariable\",\"variable\":\"x\"},\"class\":\"de.mfo.jsurfer.algebra.PolynomialPower\"}}}}},\"class\":\"de.mfo.jsurfer.algebra.PolynomialPower\"}}";
-
-	//	JSONSerializer jsonSerializer= new JSONSerializer();
-	//	String deepSerialize= jsonSerializer.deepSerialize(expression);
-	//	System.out.println(deepSerialize);
-	//	JSONDeserializer<PolynomialOperation> jsonDeserializer= new JSONDeserializer<PolynomialOperation>();
-	PolynomialOperation polynomialOperation= null;//jsonDeserializer.deserialize(a);
-
-	polynomialOperation= AlgebraicExpressionParser.parse( expression );
-	setSurfaceFamily(polynomialOperation, expression);
+	setSurfaceFamily(AlgebraicExpressionParser.parse( expression ), expression);
     }
 
     private void clearExpressionCache()

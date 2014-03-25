@@ -33,5 +33,7 @@
   <source path='de'/>
   <source path='javax'/>
   <source path='clonefactories'/>
+<!--   <source path='/home/fernando/Downloads/git/jssurf/jssurf/old-src'/> -->
+  <source path="/home/fernando/Downloads/git/jsurf-temporal/src/main/java"/>
 
 </module>

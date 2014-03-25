@@ -11,7 +11,6 @@ import de.mfo.jsurf.algebra.DescartesRootFinder;
 import de.mfo.jsurf.algebra.PolynomialExpansionCoefficientCalculator;
 import de.mfo.jsurf.algebra.TransformedPolynomialRowSubstitutor;
 import de.mfo.jsurf.algebra.TransformedPolynomialRowSubstitutorForGradient;
-import de.mfo.jsurf.rendering.AlgebraicSurfaceRenderer;
 import de.mfo.jsurf.rendering.LightProducts;
 import de.mfo.jsurf.rendering.LightSource;
 import de.mfo.jsurf.rendering.cpu.clipping.ClipToSphere;
@@ -20,7 +19,7 @@ import de.mfo.jsurf.rendering.cpu.clipping.ClipToSphere;
  *
  * @author Christian Stussak <christian at knorf.de>
  */
-public class CPUAlgebraicSurfaceRenderer extends AlgebraicSurfaceRenderer
+public class JsCPUAlgebraicSurfaceRenderer extends CPUAlgebraicSurfaceRenderer
 {
 //    Object drawMutex= new Object();
 //
@@ -152,7 +151,7 @@ public class CPUAlgebraicSurfaceRenderer extends AlgebraicSurfaceRenderer
 	return dcsd;
     }
 
-    public CPUAlgebraicSurfaceRenderer()
+    public JsCPUAlgebraicSurfaceRenderer()
     {
 	super();
 
@@ -175,11 +174,6 @@ public class CPUAlgebraicSurfaceRenderer extends AlgebraicSurfaceRenderer
     //	//return Executors.newSingleThreadExecutor( new PriorityThreadFactory() );
     //    }
 
-    public enum AntiAliasingMode
-    {
-	SUPERSAMPLING, ADAPTIVE_SUPERSAMPLING;
-    }
-
     private AntiAliasingMode aaMode;
     private float aaThreshold;
     private AntiAliasingPattern aaPattern;
@@ -201,6 +195,7 @@ public class CPUAlgebraicSurfaceRenderer extends AlgebraicSurfaceRenderer
     public void draw(int[] colorBuffer, int width, int height)
     {
 	DrawcallStaticData dcsd= collectDrawCallStaticData(colorBuffer, width, height);
+	dcsd.antiAliasingPattern= AntiAliasingPattern.OG_1x1;
 
 	//	ExecutorService threadPoolExecutor= createExecutorService();
 

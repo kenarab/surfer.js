@@ -21,6 +21,7 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 import de.mfo.jsurf.CanvasImageGenerator;
 import de.mfo.jsurf.GwtSurferExperiment;
 import de.mfo.jsurf.rendering.cpu.CPUAlgebraicSurfaceRenderer;
+import de.mfo.jsurf.rendering.cpu.JsCPUAlgebraicSurfaceRenderer;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>.

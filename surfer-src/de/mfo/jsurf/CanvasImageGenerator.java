@@ -40,7 +40,7 @@ public class CanvasImageGenerator implements ImageGenerator
 	}
     }
 
-    public void draw(ImgBuffer imgBuffer, String fileExportName, int aSize)
+    public void draw(ImgBuffer imgBuffer, int aSize)
     {
 	for (int x= 0; x < aSize; x++)
 	{
