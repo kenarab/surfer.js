@@ -27,13 +27,13 @@
   <!-- Other module inherits -->
 
   <!-- Specify the app entry point class. -->
-  <entry-point class='de.mfo.jsurf.GwtSurferExperiment'/>
+<!--   <entry-point class='de.mfo.jsurf.GwtSurferExperiment'/> -->
 
   <!-- Specify the paths for translatable code -->
   <source path='de'/>
   <source path='javax'/>
   <source path='clonefactories'/>
 <!--   <source path='/home/fernando/Downloads/git/jssurf/jssurf/old-src'/> -->
-  <source path="/home/fernando/Downloads/git/jsurf-temporal/src/main/java"/>
+<!--   <source path="/home/fernando/Downloads/git/jsurf-temporal/src/main/java"/> -->
 
 </module>

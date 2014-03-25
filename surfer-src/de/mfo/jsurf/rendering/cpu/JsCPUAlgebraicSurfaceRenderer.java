@@ -11,6 +11,7 @@ import de.mfo.jsurf.algebra.DescartesRootFinder;
 import de.mfo.jsurf.algebra.PolynomialExpansionCoefficientCalculator;
 import de.mfo.jsurf.algebra.TransformedPolynomialRowSubstitutor;
 import de.mfo.jsurf.algebra.TransformedPolynomialRowSubstitutorForGradient;
+import de.mfo.jsurf.rendering.JsAlgebraicSurfaceRenderer;
 import de.mfo.jsurf.rendering.LightProducts;
 import de.mfo.jsurf.rendering.LightSource;
 import de.mfo.jsurf.rendering.cpu.clipping.ClipToSphere;
@@ -19,7 +20,7 @@ import de.mfo.jsurf.rendering.cpu.clipping.ClipToSphere;
  *
  * @author Christian Stussak <christian at knorf.de>
  */
-public class JsCPUAlgebraicSurfaceRenderer extends CPUAlgebraicSurfaceRenderer
+public class JsCPUAlgebraicSurfaceRenderer extends JsAlgebraicSurfaceRenderer
 {
 //    Object drawMutex= new Object();
 //
@@ -53,6 +54,11 @@ public class JsCPUAlgebraicSurfaceRenderer extends CPUAlgebraicSurfaceRenderer
     //        this.tg= tg;
     //    }
 
+    public enum AntiAliasingMode
+    {
+	SUPERSAMPLING, ADAPTIVE_SUPERSAMPLING;
+    }
+    
     public AntiAliasingMode getAaMode()
     {
 	return aaMode;

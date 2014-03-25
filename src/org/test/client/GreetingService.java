@@ -3,7 +3,7 @@ package org.test.client;
 import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 
-import de.mfo.jsurf.rendering.cpu.CPUAlgebraicSurfaceRenderer;
+import de.mfo.jsurf.rendering.cpu.JsCPUAlgebraicSurfaceRenderer;
 
 /**
  * The client side stub for the RPC service.
@@ -12,5 +12,5 @@ import de.mfo.jsurf.rendering.cpu.CPUAlgebraicSurfaceRenderer;
 public interface GreetingService extends RemoteService
 {
     String greetServer(String name) throws IllegalArgumentException;
-    CPUAlgebraicSurfaceRenderer getRenderer(String equation);
+    JsCPUAlgebraicSurfaceRenderer getRenderer(String equation);
 }

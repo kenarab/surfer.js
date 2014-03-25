@@ -20,7 +20,6 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 
 import de.mfo.jsurf.CanvasImageGenerator;
 import de.mfo.jsurf.GwtSurferExperiment;
-import de.mfo.jsurf.rendering.cpu.CPUAlgebraicSurfaceRenderer;
 import de.mfo.jsurf.rendering.cpu.JsCPUAlgebraicSurfaceRenderer;
 
 /**
@@ -142,9 +141,9 @@ public class Gwt_mini_surfer implements EntryPoint
 	     */
 	    private void sendNameToServer()
 	    {
-		greetingService.getRenderer(equationField.getText(), new AsyncCallback<CPUAlgebraicSurfaceRenderer>()
+		greetingService.getRenderer(equationField.getText(), new AsyncCallback<JsCPUAlgebraicSurfaceRenderer>()
 		{
-		    public void onSuccess(CPUAlgebraicSurfaceRenderer result)
+		    public void onSuccess(JsCPUAlgebraicSurfaceRenderer result)
 		    {
 			System.out.println(result.getCamera().getCameraType());
 			main= new GwtSurferExperiment(result);
