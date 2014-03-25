@@ -1,3 +1,4 @@
+
 package de.mfo.jsurf;
 
 import java.awt.Point;
@@ -21,12 +22,12 @@ import de.mfo.jsurf.util.RotateSphericalDragger;
  */
 public class GwtSurferExperiment
 {
-    static public String platform= "js";
-    static int randomSeed= 0;
+    static public String platform = "js";
+    static int randomSeed = 0;
     static Random randomGenerator;
     static
     {
-	randomGenerator= new Random(randomSeed);
+	randomGenerator = new Random(randomSeed);
     }
     protected CPUAlgebraicSurfaceRenderer asr;
     protected Matrix4d rotation;
@@ -34,7 +35,7 @@ public class GwtSurferExperiment
     protected TimeCollector timeCollector;
     protected String surfaceId;
 
-    protected int currentFrame= 0;
+    protected int currentFrame = 0;
     protected int startX;
     protected int startY;
     protected int endX;
@@ -51,17 +52,17 @@ public class GwtSurferExperiment
 
     public void setImageGenerator(ImageGenerator imageGenerator)
     {
-	this.imageGenerator= imageGenerator;
+	this.imageGenerator = imageGenerator;
     }
 
     public static void main(String[] args)
     {
-	GwtSurferExperiment aGWTExperiment= new GwtSurferExperiment();
+	GwtSurferExperiment aGWTExperiment = new GwtSurferExperiment();
 	//For set profiling information in java mode 
-	aGWTExperiment.platform= "java";
+	aGWTExperiment.platform = "java";
 
-	final Parameters parameters= new Parameters(args);
-	aGWTExperiment.imageGenerator= new BufferedImageGenerator(parameters.size);
+	final Parameters parameters = new Parameters(args);
+	aGWTExperiment.imageGenerator = new BufferedImageGenerator(parameters.size);
 	if (parameters.mode.equals("profile"))
 	    aGWTExperiment.mainProfile(parameters);
 	if (parameters.mode.equals("animation"))
@@ -70,18 +71,18 @@ public class GwtSurferExperiment
 
     public GwtSurferExperiment()
     {
-	timeCollector= new TimeCollector();
+	timeCollector = new TimeCollector();
     }
 
     public GwtSurferExperiment(CPUAlgebraicSurfaceRenderer renderer)
     {
 	this();
-	this.renderer= renderer;
+	this.renderer = renderer;
     }
 
     public void setScale(double scaleFactor)
     {
-	scaleFactor= Math.pow(10, scaleFactor);
+	scaleFactor = Math.pow(10, scaleFactor);
 	scale.setScale(scaleFactor);
     }
 
@@ -91,10 +92,10 @@ public class GwtSurferExperiment
 	switch (c.getCameraType())
 	{
 	    case ORTHOGRAPHIC_CAMERA:
-		cameraDistance= 1.0f;
+		cameraDistance = 1.0f;
 		break;
 	    case PERSPECTIVE_CAMERA:
-		cameraDistance= (float) (1.0 / Math.sin((Math.PI / 180.0) * (c.getFoVY() / 2.0)));
+		cameraDistance = (float) (1.0 / Math.sin((Math.PI / 180.0) * (c.getFoVY() / 2.0)));
 		break;
 	    default:
 		throw new RuntimeException();
@@ -104,7 +105,7 @@ public class GwtSurferExperiment
 
     public void doStandalone(String args[])
     {
-	final Parameters parameters= new Parameters(args);
+	final Parameters parameters = new Parameters(args);
 	imageGenerator.setSize(parameters.size);
 	mainStandalone(parameters);
     }
@@ -125,36 +126,37 @@ public class GwtSurferExperiment
 	    }
 	}, 10);
     }
+
     public void doProfile(final String args[])
     {
-	final Parameters parameters= new Parameters(args);
+	final Parameters parameters = new Parameters(args);
 	imageGenerator.setSize(parameters.size);
 	mainProfile(parameters);
     }
 
     public void mainProfile(Parameters parameters)
     {
-	int cases= parameters.cases;
+	int cases = parameters.cases;
 
-	for (int currentSurfaceNumber= 1; currentSurfaceNumber <= 5; currentSurfaceNumber++)
+	for (int currentSurfaceNumber = 1; currentSurfaceNumber <= 5; currentSurfaceNumber++)
 	{
-	    Date date= new Date();
+	    Date date = new Date();
 	    ALog.log("surface " + currentSurfaceNumber + " " + date.toString(), platform, true);
 	    //System.out.println("surface " + currentSurfaceNumber + " " + date.toString());
-	    for (int caseNumber= 0; caseNumber < cases; caseNumber++)
+	    for (int caseNumber = 0; caseNumber < cases; caseNumber++)
 	    {
 		ALog.log("\tcase " + caseNumber + " " + date.toString(), platform, true);
-		date= new Date();
-		int size= parameters.size;
+		date = new Date();
+		int size = parameters.size;
 		setSurface4Render(currentSurfaceNumber, size);
-		for (int actualSize= 1; actualSize <= 4; actualSize++)
+		for (int actualSize = 1; actualSize <= 4; actualSize++)
 		{
-		    date= new Date();
+		    date = new Date();
 		    ALog.log("\t\tsize " + size + " " + date.toString(), platform, true);
 		    //System.out.print("\t\t");
-		    currentFrame= 0;
+		    currentFrame = 0;
 		    renderAnimationCurrentSurface("test_" + size + "_" + caseNumber + "_" + currentSurfaceNumber, currentSurfaceNumber, parameters.frames, size, false);
-		    size*= 2;
+		    size *= 2;
 		}
 	    }
 	}
@@ -163,30 +165,30 @@ public class GwtSurferExperiment
 
     public void setSurface4Render(int aSurfaceNumber, Integer aSize)
     {
-	currentFrame= 0;
+	currentFrame = 0;
 	timeCollector.resetStage(platform);
-	int surfaceNumber= aSurfaceNumber;
+	int surfaceNumber = aSurfaceNumber;
 	// initCanvas(aSize);
-	asr= new CPUAlgebraicSurfaceRenderer();
-	surfaceId= "surface";
-	
-	if (renderer!= null)
-	    asr= renderer;
-	
+	asr = new CPUAlgebraicSurfaceRenderer();
+	surfaceId = "surface";
+
+	if (renderer != null)
+	    asr = renderer;
+
 	timeCollector.registerStart(surfaceNumber, surfaceId, 0, "init surface");
 
-	Simplificator simplificator= new Simplificator();
+	Simplificator simplificator = new Simplificator();
 	simplificator.setParameterValue("a", parameterAValue);
 	simplificator.setParameterValue("b", 0.5d);
 	asr.setParameterSubstitutor(simplificator);
 
-	scale= new Matrix4d();
+	scale = new Matrix4d();
 	scale.setIdentity();
 	setScale(0.0);
 
 	if (rotation == null)
 	{
-	    rotation= new Matrix4d();
+	    rotation = new Matrix4d();
 	    rotation.setIdentity();
 	}
 
@@ -203,22 +205,22 @@ public class GwtSurferExperiment
 	{
 	    if (currentFrame == 0)
 	    {
-		rsd= new RotateSphericalDragger();
-		Matrix4d rotationCopy= new Matrix4d(rotation);
+		rsd = new RotateSphericalDragger();
+		Matrix4d rotationCopy = new Matrix4d(rotation);
 		rotationCopy.invert();
 		rsd.setRotation(rotationCopy);
-		startX= randomGenerator.nextInt(aSize - 1) + 1;
-		startY= randomGenerator.nextInt(aSize - 1) + 1;
-		float dragMoveResolution= 5;
-		endX= saturate((int) (randomGenerator.nextInt((int) (2 * aSize / dragMoveResolution)) - aSize / dragMoveResolution + startX), 1, aSize);
-		endY= saturate((int) (randomGenerator.nextInt((int) (2 * aSize / dragMoveResolution)) - aSize / dragMoveResolution + startY), 1, aSize);
+		startX = randomGenerator.nextInt(aSize - 1) + 1;
+		startY = randomGenerator.nextInt(aSize - 1) + 1;
+		float dragMoveResolution = 5;
+		endX = saturate((int) (randomGenerator.nextInt((int) (2 * aSize / dragMoveResolution)) - aSize / dragMoveResolution + startX), 1, aSize);
+		endY = saturate((int) (randomGenerator.nextInt((int) (2 * aSize / dragMoveResolution)) - aSize / dragMoveResolution + startY), 1, aSize);
 	    }
 
-	    int digits= (int) Math.ceil(Math.log10(frames));
+	    int digits = (int) Math.ceil(Math.log10(frames));
 
-	    int maxValue= showing ? 1 : frames;
+	    int maxValue = showing ? 1 : frames;
 	    ALog.log("\t\t", platform, false);
-	    for (int i= 0; i < maxValue; i++)
+	    for (int i = 0; i < maxValue; i++)
 	    {
 		renderCurrentSurface(fileExportNamePrefix + "F" + /*
 								  					 * String.format("%0"
@@ -236,7 +238,7 @@ public class GwtSurferExperiment
 	}
 	else
 	{
-	    currentFrame= 0;
+	    currentFrame = 0;
 	    return false;
 	}
     }
@@ -253,7 +255,7 @@ public class GwtSurferExperiment
 	try
 	{
 	    timeCollector.registerStart(surfaceNumber, surfaceId, aSize, "configScene");
-	    ImgBuffer imgBuffer= new ImgBuffer(aSize, aSize);
+	    ImgBuffer imgBuffer = new ImgBuffer(aSize, aSize);
 
 	    // do rendering
 
@@ -266,7 +268,7 @@ public class GwtSurferExperiment
 	    {
 		timeCollector.registerStart(surfaceNumber, surfaceId, aSize, "render");
 		asr.draw(imgBuffer.rgbBuffer, imgBuffer.width, imgBuffer.height);
-		imageGenerator.draw(imgBuffer, fileExportName, aSize);
+		imageGenerator.draw(imgBuffer, aSize);
 		timeCollector.registerEnd();
 	    }
 	    catch (Throwable t)
@@ -285,7 +287,7 @@ public class GwtSurferExperiment
 
     protected void printReportAsTable()
     {
-	Date date= new Date();
+	Date date = new Date();
 	timeCollector.printReportAsTable(""/*
 					   				 * MString.format("%ty%tm%td%tH%tM%tS"
 					   				 * , date, date, date, date, date,

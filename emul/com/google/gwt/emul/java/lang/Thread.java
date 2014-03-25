@@ -22,4 +22,8 @@ public class Thread implements Runnable
     {
 	
     }
+    
+    public boolean isInterrupted() {
+        return false;
+    }
 }

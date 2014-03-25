@@ -11,4 +11,8 @@ public class Properties
     {
 	return "";
     }
+    
+    public synchronized Object setProperty(String key, String value) {
+        return null;
+    }
 }

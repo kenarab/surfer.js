@@ -62,7 +62,7 @@ public class TorusFactory
 	    doubleValue_338= new de.mfo.jsurf.algebra.DoubleValue();
 	    double_341= new java.lang.Double(4.0D);
 	    doubleBinaryOperation$Op_342= de.mfo.jsurf.algebra.DoubleBinaryOperation.Op.mult;
-	    cPUAlgebraicSurfaceRenderer_1= new de.mfo.jsurf.rendering.cpu.CPUAlgebraicSurfaceRenderer();
+	    cPUAlgebraicSurfaceRenderer_1= new de.mfo.jsurf.rendering.cpu.JsCPUAlgebraicSurfaceRenderer();
 	    integer_51= new java.lang.Integer(4);
 	    string_58= "(x^2+y^2+z^2+a^2-b^2)^2-4*b^2*(x^2+y^2)";
 	    float_39= new java.lang.Float(0.8F);
@@ -203,7 +203,7 @@ public class TorusFactory
     public javax.vecmath.Point3d point3d_127;
     public de.mfo.jsurf.algebra.PolynomialSubtraction polynomialSubtraction_283;
     public de.mfo.jsurf.algebra.PolynomialPower polynomialPower_403;
-    public de.mfo.jsurf.rendering.cpu.CPUAlgebraicSurfaceRenderer cPUAlgebraicSurfaceRenderer_1;
+    public de.mfo.jsurf.rendering.cpu.JsCPUAlgebraicSurfaceRenderer cPUAlgebraicSurfaceRenderer_1;
     public de.mfo.jsurf.rendering.LightSource lightSource_67;
     public de.mfo.jsurf.algebra.DoubleVariable doubleVariable_363;
     public de.mfo.jsurf.algebra.PolynomialPower polynomialPower_397;

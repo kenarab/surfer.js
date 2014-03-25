@@ -50,12 +50,12 @@ public class BufferedImageGenerator implements ImageGenerator
 	javax.imageio.ImageIO.write(bufferedImage, "png", os);
     }
 
-    public void draw(ImgBuffer imgBuffer, String fileExportName, int aSize)
+    public void draw(ImgBuffer imgBuffer, int aSize)
     {
 	try
 	{
 	    BufferedImage bufferedImage= createBufferedImageFromRGB(imgBuffer);
-	    saveToPNG(new FileOutputStream(new File(fileExportName + ".png")), bufferedImage);
+//	    saveToPNG(new FileOutputStream(new File(fileExportName + ".png")), bufferedImage);
 	}
 	catch (Exception e)
 	{
