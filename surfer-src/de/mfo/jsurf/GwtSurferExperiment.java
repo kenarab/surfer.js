@@ -12,7 +12,7 @@ import javax.vecmath.Vector3d;
 import de.mfo.jsurf.algebra.Simplificator;
 import de.mfo.jsurf.profiler.TimeCollector;
 import de.mfo.jsurf.rendering.Camera;
-import de.mfo.jsurf.rendering.cpu.CPUAlgebraicSurfaceRenderer;
+import de.mfo.jsurf.rendering.cpu.JsCPUAlgebraicSurfaceRenderer;
 import de.mfo.jsurf.util.RotateSphericalDragger;
 
 /**
@@ -29,7 +29,7 @@ public class GwtSurferExperiment
     {
 	randomGenerator = new Random(randomSeed);
     }
-    protected CPUAlgebraicSurfaceRenderer asr;
+    protected JsCPUAlgebraicSurfaceRenderer asr;
     protected Matrix4d rotation;
     protected Matrix4d scale;
     protected TimeCollector timeCollector;
@@ -43,7 +43,7 @@ public class GwtSurferExperiment
     protected RotateSphericalDragger rsd;
     protected ImageGenerator imageGenerator;
     private double parameterAValue;
-    private CPUAlgebraicSurfaceRenderer renderer;
+    private JsCPUAlgebraicSurfaceRenderer renderer;
 
     public ImageGenerator getImageGenerator()
     {
@@ -74,7 +74,7 @@ public class GwtSurferExperiment
 	timeCollector = new TimeCollector();
     }
 
-    public GwtSurferExperiment(CPUAlgebraicSurfaceRenderer renderer)
+    public GwtSurferExperiment(JsCPUAlgebraicSurfaceRenderer renderer)
     {
 	this();
 	this.renderer = renderer;
@@ -169,7 +169,7 @@ public class GwtSurferExperiment
 	timeCollector.resetStage(platform);
 	int surfaceNumber = aSurfaceNumber;
 	// initCanvas(aSize);
-	asr = new CPUAlgebraicSurfaceRenderer();
+	asr = new JsCPUAlgebraicSurfaceRenderer();
 	surfaceId = "surface";
 
 	if (renderer != null)

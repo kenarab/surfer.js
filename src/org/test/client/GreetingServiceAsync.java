@@ -2,7 +2,7 @@ package org.test.client;
 
 import com.google.gwt.user.client.rpc.AsyncCallback;
 
-import de.mfo.jsurf.rendering.cpu.CPUAlgebraicSurfaceRenderer;
+import de.mfo.jsurf.rendering.cpu.JsCPUAlgebraicSurfaceRenderer;
 
 /**
  * The async counterpart of <code>GreetingService</code>.
@@ -10,5 +10,5 @@ import de.mfo.jsurf.rendering.cpu.CPUAlgebraicSurfaceRenderer;
 public interface GreetingServiceAsync
 {
     void greetServer(String input, AsyncCallback<String> callback) throws IllegalArgumentException;
-    void getRenderer(String equation, AsyncCallback<CPUAlgebraicSurfaceRenderer> callback);
+    void getRenderer(String equation, AsyncCallback<JsCPUAlgebraicSurfaceRenderer> callback);
 }

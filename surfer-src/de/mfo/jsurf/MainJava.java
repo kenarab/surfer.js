@@ -23,7 +23,7 @@ import javax.vecmath.Vector3d;
 import de.mfo.jsurf.profiler.TimeCollector;
 import de.mfo.jsurf.rendering.Camera;
 import de.mfo.jsurf.rendering.LightSource;
-import de.mfo.jsurf.rendering.cpu.CPUAlgebraicSurfaceRenderer;
+import de.mfo.jsurf.rendering.cpu.JsCPUAlgebraicSurfaceRenderer;
 import de.mfo.jsurf.util.BasicIO;
 // input/output
 
@@ -33,7 +33,7 @@ import de.mfo.jsurf.util.BasicIO;
  */
 public class MainJava {
 	String platform="java";
-	static CPUAlgebraicSurfaceRenderer asr;
+	static JsCPUAlgebraicSurfaceRenderer asr;
 	static Matrix4d rotation;
 	static Matrix4d scale;
 	TimeCollector timeCollector;
@@ -242,7 +242,7 @@ public class MainJava {
 		timeCollector.registerStart(surfaceNumber, surfaceId, size, "total");
 		timeCollector.registerStart(surfaceNumber, surfaceId, size, "init");
 
-		asr = new CPUAlgebraicSurfaceRenderer();
+		asr = new JsCPUAlgebraicSurfaceRenderer();
 
 		scale = new Matrix4d();
 		scale.setIdentity();
