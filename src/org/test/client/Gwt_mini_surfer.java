@@ -1,5 +1,5 @@
-package org.test.client;
 
+package org.test.client;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
@@ -8,6 +8,7 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.KeyCodes;
 import com.google.gwt.event.dom.client.KeyUpEvent;
 import com.google.gwt.event.dom.client.KeyUpHandler;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.DialogBox;
@@ -32,36 +33,78 @@ public class Gwt_mini_surfer implements EntryPoint
      * The message displayed to the user when the server cannot be reached or
      * returns an error.
      */
-    private static final String SERVER_ERROR= "An error occurred while " + "attempting to contact the server. Please check your network " + "connection and try again.";
+    private static final String SERVER_ERROR = "An error occurred while " + "attempting to contact the server. Please check your network " + "connection and try again.";
 
     /**
      * Create a remote service proxy to talk to the server-side Greeting service.
      */
-    private final GreetingServiceAsync greetingService= GWT.create(GreetingService.class);
+    private final GreetingServiceAsync greetingService = GWT.create(GreetingService.class);
 
     /**
      * This is the entry point method.
      */
     public void onModuleLoad()
     {
-	final ListBox surfaceListbox= new ListBox(false);
+	boolean profilingMode = Window.Location.getQueryString().indexOf("profiling=true") >= 0;
+
+	if (profilingMode)
+	    showProfilingPage();
+	else
+	    showFinalPage();
+    }
+
+    private void showFinalPage()
+    {
+	final TextBox equationField = new TextBox();
+	equationField.setStyleName("input-max");
+	equationField.setSize("500px", "30");
+	RootPanel.get("equationFieldContainer").add(equationField);
+	equationField.addKeyUpHandler(new KeyUpHandler()
+	{
+	    public void onKeyUp(KeyUpEvent event)
+	    {
+		if (event.getNativeKeyCode() == KeyCodes.KEY_ENTER)
+		{
+		    greetingService.getRenderer(equationField.getText(), new AsyncCallback<JsCPUAlgebraicSurfaceRenderer>()
+		    {
+			public void onSuccess(JsCPUAlgebraicSurfaceRenderer result)
+			{
+			    System.out.println(result.getCamera().getCameraType());
+			    main = new GwtSurferExperiment(result);
+			    main.setImageGenerator(new CanvasImageGenerator());
+			    main.doStandalone(new String[] { "animation", "200", "1", "surface-x" });
+			}
+
+			public void onFailure(Throwable caught)
+			{
+			}
+		    });
+		}
+	    }
+	});
+
+    }
+
+    private void showProfilingPage()
+    {
+	final ListBox surfaceListbox = new ListBox(false);
 	surfaceListbox.addItem("Torus");
 	surfaceListbox.addItem("Zitrus");
 	surfaceListbox.addItem("KummerCuartic");
 	surfaceListbox.addItem("BarthSextic");
 	surfaceListbox.addItem("ChmutovOctic");
 
-	final Button sendButton= new Button("Render");
-	final TextBox framesField= new TextBox();
-	final Button stopButton= new Button("Stop/Report");
-	final TextBox sizeField= new TextBox();
-	final Button profileButton= new Button("Profile");
-	final TextBox casesField= new TextBox();
+	final Button sendButton = new Button("Render");
+	final TextBox framesField = new TextBox();
+	final Button stopButton = new Button("Stop/Report");
+	final TextBox sizeField = new TextBox();
+	final Button profileButton = new Button("Profile");
+	final TextBox casesField = new TextBox();
 	sizeField.setText("100");
 	framesField.setText("10");
 	casesField.setText("5");
-	final Label errorLabel= new Label();
-	final TextBox equationField= new TextBox();
+	final Label errorLabel = new Label();
+	final TextBox equationField = new TextBox();
 	equationField.setSize("500px", "30");
 
 	// We can add style names to widgets
@@ -84,15 +127,15 @@ public class Gwt_mini_surfer implements EntryPoint
 	sizeField.selectAll();
 
 	// Create the popup dialog box
-	final DialogBox dialogBox= new DialogBox();
+	final DialogBox dialogBox = new DialogBox();
 	dialogBox.setText("Remote Procedure Call");
 	dialogBox.setAnimationEnabled(true);
-	final Button closeButton= new Button("Close");
+	final Button closeButton = new Button("Close");
 	// We can set the id of a widget by accessing its Element
 	closeButton.getElement().setId("closeButton");
-	final Label textToServerLabel= new Label();
-	final HTML serverResponseLabel= new HTML();
-	VerticalPanel dialogVPanel= new VerticalPanel();
+	final Label textToServerLabel = new Label();
+	final HTML serverResponseLabel = new HTML();
+	VerticalPanel dialogVPanel = new VerticalPanel();
 	dialogVPanel.addStyleName("dialogVPanel");
 	dialogVPanel.add(new HTML("<b>Sending name to the server:</b>"));
 	dialogVPanel.add(textToServerLabel);
@@ -116,7 +159,6 @@ public class Gwt_mini_surfer implements EntryPoint
 	// Create a handler for the sendButton and nameField
 	class MyHandler implements ClickHandler, KeyUpHandler
 	{
-
 	    /**
 	     * Fired when the user clicks on the sendButton.
 	     */
@@ -146,11 +188,11 @@ public class Gwt_mini_surfer implements EntryPoint
 		    public void onSuccess(JsCPUAlgebraicSurfaceRenderer result)
 		    {
 			System.out.println(result.getCamera().getCameraType());
-			main= new GwtSurferExperiment(result);
+			main = new GwtSurferExperiment(result);
 			main.setImageGenerator(new CanvasImageGenerator());
 			main.doStandalone(new String[] { "animation", sizeField.getText(), framesField.getText(), surfaceListbox.getItemText(surfaceListbox.getSelectedIndex()) });
 		    }
-		    
+
 		    public void onFailure(Throwable caught)
 		    {
 		    }
@@ -159,7 +201,7 @@ public class Gwt_mini_surfer implements EntryPoint
 	}
 
 	// Add a handler to send the name to the server
-	MyHandler handler= new MyHandler();
+	MyHandler handler = new MyHandler();
 	sendButton.addClickHandler(handler);
 	stopButton.addClickHandler(new ClickHandler()
 	{
@@ -173,7 +215,7 @@ public class Gwt_mini_surfer implements EntryPoint
 	{
 	    public void onClick(ClickEvent event)
 	    {
-		main= new GwtSurferExperiment();
+		main = new GwtSurferExperiment();
 		main.setImageGenerator(new CanvasImageGenerator());
 		main.doProfile(new String[] { "profile", sizeField.getText(), framesField.getText(), surfaceListbox.getItemText(surfaceListbox.getSelectedIndex()), casesField.getText() });
 	    }
