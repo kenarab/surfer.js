@@ -40,12 +40,12 @@
 		<link>
 			<name>jsurf-src</name>
 			<type>2</type>
-			<location>/home/fernando/Downloads/git/jsurf-temporal/src/main/java</location>
+			<location>/home/fernando/Downloads/git/jsurf/src/main/java</location>
 		</link>
 		<link>
 			<name>vecmath-src</name>
 			<type>2</type>
-			<location>/home/fernando/Downloads/git/jsurf-temporal/vecmath-src</location>
+			<location>/home/fernando/Downloads/git/jsurf/vecmath-src</location>
 		</link>
 	</linkedResources>
 </projectDescription>
