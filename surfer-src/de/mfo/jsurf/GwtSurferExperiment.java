@@ -14,6 +14,7 @@ import de.mfo.jsurf.profiler.TimeCollector;
 import de.mfo.jsurf.rendering.Camera;
 import de.mfo.jsurf.rendering.cpu.JsCPUAlgebraicSurfaceRenderer;
 import de.mfo.jsurf.util.RotateSphericalDragger;
+import de.mfo.jsurf.util.ServiceLocator;
 
 /**
  * 
@@ -72,6 +73,7 @@ public class GwtSurferExperiment
     public GwtSurferExperiment()
     {
 	timeCollector = new TimeCollector();
+	ServiceLocator.getInstance().setMathService(new JsMathService());
     }
 
     public GwtSurferExperiment(JsCPUAlgebraicSurfaceRenderer renderer)
