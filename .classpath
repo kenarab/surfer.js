@@ -9,8 +9,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="com.google.gwt.eclipse.core.GWT_CONTAINER"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/antlr-runtime-3.4.jar"/>
-	<classpathentry exported="true" kind="lib" path="/home/fernando/.gradle/caches/artifacts-23/filestore/javax/vecmath/1.5.2/jar/9e03116fca73ffa248f265c92ca6a2c8368c0669/vecmath-1.5.2.jar" sourcepath="/home/fernando/.gradle/caches/artifacts-23/filestore/javax/vecmath/1.5.2/source/834b65b4eff154f0349abf4c1300540b690de62d/vecmath-1.5.2-sources.jar"/>
-	<classpathentry exported="true" kind="lib" path="/home/fernando/.gradle/caches/artifacts-23/filestore/org.antlr/antlr-runtime/3.4/jar/8f011408269a8e42b8548687e137d8eeb56df4b4/antlr-runtime-3.4.jar" sourcepath="/home/fernando/.gradle/caches/artifacts-23/filestore/org.antlr/antlr-runtime/3.4/source/57a73190ad97f56c0cb83a6a5b6c08d5d428319b/antlr-runtime-3.4-sources.jar"/>
-	<classpathentry exported="true" kind="lib" path="/home/fernando/.gradle/caches/artifacts-23/filestore/commons-cli/commons-cli/1.2/jar/2bf96b7aa8b611c177d329452af1dc933e14501c/commons-cli-1.2.jar" sourcepath="/home/fernando/.gradle/caches/artifacts-23/filestore/commons-cli/commons-cli/1.2/source/6c5459816530a1962ac18cd315cc775b1b384329/commons-cli-1.2-sources.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-cli-1.2.jar"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>
