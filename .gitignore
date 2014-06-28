@@ -1,3 +1,8 @@
 gwt-unitCache
 war/WEB-INF/classes/*
 .gwt/.gwt-log
+
+#dev deploy
+war/gwt_mini_surfer
+war/gwt_surfer.js
+war/WEB-INF/deploy/gwt_mini_surfer
