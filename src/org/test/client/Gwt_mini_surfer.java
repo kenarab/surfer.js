@@ -3,6 +3,7 @@ package org.test.client;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.dom.client.CanvasElement;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.KeyCodes;
@@ -53,12 +54,19 @@ public class Gwt_mini_surfer implements EntryPoint
 	    showFinalPage();
     }
 
+    static native void setupInputs() /*-{
+		$wnd.setupInputs();
+    }-*/;
+
     private void showFinalPage()
     {
 	final TextBox equationField = new TextBox();
 	equationField.setStyleName("input-max");
-	equationField.setSize("500px", "30");
+	//equationField.setSize("500px", "30");
+	equationField.setValue("6*x^2-2*x^4-y^2*z^2");
+	RootPanel.get("equationFieldContainer").clear();
 	RootPanel.get("equationFieldContainer").add(equationField);
+	setupInputs();	
 	equationField.addKeyUpHandler(new KeyUpHandler()
 	{
 	    public void onKeyUp(KeyUpEvent event)

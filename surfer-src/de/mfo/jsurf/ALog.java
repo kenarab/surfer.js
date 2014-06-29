@@ -11,13 +11,14 @@ public class ALog
 {
     private static final Logger logger= Logger.getLogger("");
     protected static boolean initialized= false;
+    private static boolean logging= false;
     static
     {
     }
 
     public static void lazyInitialization(String platform)
     {
-	if (platform.equals("js"))
+	if (platform.equals("js") && logging)
 	{
 	    PopupPanel loggingPopup= new LoggingPopup();
 	    loggingPopup.setPopupPosition(10, 340);
