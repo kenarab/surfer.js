@@ -33,9 +33,10 @@ public class CanvasImageGenerator implements ImageGenerator
 	    canvas= Canvas.createIfSupported();
 	    canvas.setCoordinateSpaceHeight(size);
 	    canvas.setCoordinateSpaceWidth(size);
-	    RootPanel.get().add(canvas);
+	    RootPanel.get("canvas-container").clear();
+	    RootPanel.get("canvas-container").add(canvas);
 	    context= canvas.getContext2d();
-	    context.getCanvas().setAttribute("style", "position: absolute; top: 0px; left: 540px; width: 750px; height: 750px;");
+	    context.getCanvas().setAttribute("style", "width: 640px; height: 640px;");
 	    imageData= context.createImageData(size, size);
 	}
     }

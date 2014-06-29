@@ -1,18 +1,22 @@
-$(document).ready(function() {
+window.setupInputs= function ()
+{
+	$('#slider input').slider();
 
-    $('#slider input').slider();
-    
-    
-    var formulaInput = $('#controls-row input');
-    var buttonsRow = $("#btns-row");
-    //if the cursor goes activates the formula
-    formulaInput.focus(function() {
-        buttonsRow.animate({height:"50px"});
-    });
+	var formulaInput = $('#controls-row input');
+	var buttonsRow = $("#btns-row");
+	// if the cursor goes activates the formula
+	formulaInput.focus(function() {
+		buttonsRow.animate({
+			height : "50px"
+		});
+	});
 
-    //and if it loses focus
-    formulaInput.blur(function() {
-        buttonsRow.animate({height:0});
-    });
-    
-});
+	// and if it loses focus
+	formulaInput.blur(function() {
+		buttonsRow.animate({
+			height : 0
+		});
+	});
+}
+
+$(document).ready(setupInputs);
