@@ -19,7 +19,7 @@ Installing GWT SDK 2.5.0 in Eclipse has to be done manually:
 2. setup GWT SDK 2.5.0 on windows>>preferences>>Google>>Web Toolkit.
 
 
-#Instuctions for compiling/running
+#Instructions for compiling/running
 
 
 
@@ -28,6 +28,7 @@ Installing GWT SDK 2.5.0 in Eclipse has to be done manually:
 3. start the class JettyServer under jetty-src folder, it will run a web server (servlet container) in 8081 port.
 
 Then you have to access to this URL: 
+
 http://localhost:8081/surf.js/surfer-new-design-03.html
 
 
