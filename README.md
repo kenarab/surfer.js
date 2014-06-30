@@ -13,6 +13,7 @@ Requires
 * GWT SDK 2.5.0 
 
 Installing GWT SDK 2.5.0 in Eclipse has to be done manually:
+
 1. download this file https://code.google.com/p/google-web-toolkit/downloads/detail?name=gwt-2.5.0.zip&can=2&q=
 
 2. setup GWT SDK 2.5.0 on windows>>preferences>>Google>>Web Toolkit.
