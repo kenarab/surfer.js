@@ -23,9 +23,9 @@ Installing GWT SDK 2.5.0 in Eclipse has to be done manually:
 
 
 
-1. in workspace dir ```git clone git@github.com:kenarab/jsurf.git jssurf ```(jssurf includes vecmath modified sources for running in js)
-2. in eclipse, compile GWT project.
-3. start the class JettyServer under jetty-src folder, it will run a web server (servlet container) in 8081 port.
+1. In workspace dir ```git clone -b jssurf https://github.com/kenarab/surfer.js.git jssurf ```(jssurf includes vecmath modified sources for running in js)
+2. In eclipse, compile GWT project.
+3. In eclipse, start the class JettyServer under jetty-src folder, it will run a web server (servlet container) in 8081 port.
 
 Then you have to access to this URL: 
 
