@@ -4,9 +4,9 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="api"/>
 	<classpathentry excluding="de/mfo/jsurfer/MainJava.java|de/mfo/jsurf/algebra/|de/mfo/jsurf/debug/|de/mfo/jsurf/images/|de/mfo/jsurf/parser/|de/mfo/jsurf/util/|de/mfo/jsurf/ImageGenerator.java|de/mfo/jsurf/BufferedImageGenerator.java" kind="src" path="surfer-src"/>
-	<classpathentry kind="src" path="vecmath-src"/>
 	<classpathentry kind="src" path="jsurf-src"/>
 	<classpathentry kind="src" path="jetty-src"/>
+	<classpathentry kind="src" path="vecmath-src2"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="com.google.gwt.eclipse.core.GWT_CONTAINER"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/antlr-runtime-3.4.jar"/>

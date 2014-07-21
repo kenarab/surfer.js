@@ -1,6 +1,8 @@
 
 package org.test.client;
 
+import java.util.HashMap;
+
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.CanvasElement;
@@ -21,7 +23,7 @@ import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
 import de.mfo.jsurf.CanvasImageGenerator;
-import de.mfo.jsurf.GwtSurferExperiment;
+import de.mfo.jsurf.GwtSurfer;
 import de.mfo.jsurf.rendering.cpu.JsCPUAlgebraicSurfaceRenderer;
 
 /**
@@ -29,7 +31,7 @@ import de.mfo.jsurf.rendering.cpu.JsCPUAlgebraicSurfaceRenderer;
  */
 public class Gwt_mini_surfer implements EntryPoint
 {
-    protected GwtSurferExperiment main;
+    protected GwtSurfer main;
     /**
      * The message displayed to the user when the server cannot be reached or
      * returns an error.
@@ -39,13 +41,15 @@ public class Gwt_mini_surfer implements EntryPoint
     /**
      * Create a remote service proxy to talk to the server-side Greeting service.
      */
-    private final GreetingServiceAsync greetingService = GWT.create(GreetingService.class);
+    private final SurferServiceAsync greetingService = GWT.create(SurferService.class);
 
     /**
      * This is the entry point method.
      */
     public void onModuleLoad()
     {
+	ApiExporter.exportStaticMethod();
+
 	boolean profilingMode = Window.Location.getQueryString().indexOf("profiling=true") >= 0;
 
 	if (profilingMode)
@@ -66,27 +70,15 @@ public class Gwt_mini_surfer implements EntryPoint
 	equationField.setValue("6*x^2-2*x^4-y^2*z^2");
 	RootPanel.get("equationFieldContainer").clear();
 	RootPanel.get("equationFieldContainer").add(equationField);
-	setupInputs();	
+	setupInputs();
 	equationField.addKeyUpHandler(new KeyUpHandler()
 	{
 	    public void onKeyUp(KeyUpEvent event)
 	    {
 		if (event.getNativeKeyCode() == KeyCodes.KEY_ENTER)
 		{
-		    greetingService.getRenderer(equationField.getText(), new AsyncCallback<JsCPUAlgebraicSurfaceRenderer>()
-		    {
-			public void onSuccess(JsCPUAlgebraicSurfaceRenderer result)
-			{
-			    System.out.println(result.getCamera().getCameraType());
-			    main = new GwtSurferExperiment(result);
-			    main.setImageGenerator(new CanvasImageGenerator());
-			    main.doStandalone(new String[] { "animation", "200", "1", "surface-x" });
-			}
-
-			public void onFailure(Throwable caught)
-			{
-			}
-		    });
+		    ApiExporter.setSurfaceProperty("surface_equation", equationField.getText());
+		    ApiExporter.renderSurface(100, 0, 0, 0, 0, null);
 		}
 	    }
 	});
@@ -191,12 +183,12 @@ public class Gwt_mini_surfer implements EntryPoint
 	     */
 	    private void sendNameToServer()
 	    {
-		greetingService.getRenderer(equationField.getText(), new AsyncCallback<JsCPUAlgebraicSurfaceRenderer>()
+		greetingService.getRenderer(ApiExporter.surfaceDescription, new HashMap<String, String>(), new AsyncCallback<JsCPUAlgebraicSurfaceRenderer>()
 		{
 		    public void onSuccess(JsCPUAlgebraicSurfaceRenderer result)
 		    {
 			System.out.println(result.getCamera().getCameraType());
-			main = new GwtSurferExperiment(result);
+			main = new GwtSurfer(result);
 			main.setImageGenerator(new CanvasImageGenerator());
 			main.doStandalone(new String[] { "animation", sizeField.getText(), framesField.getText(), surfaceListbox.getItemText(surfaceListbox.getSelectedIndex()) });
 		    }
@@ -223,7 +215,7 @@ public class Gwt_mini_surfer implements EntryPoint
 	{
 	    public void onClick(ClickEvent event)
 	    {
-		main = new GwtSurferExperiment();
+		main = new GwtSurfer();
 		main.setImageGenerator(new CanvasImageGenerator());
 		main.doProfile(new String[] { "profile", sizeField.getText(), framesField.getText(), surfaceListbox.getItemText(surfaceListbox.getSelectedIndex()), casesField.getText() });
 	    }

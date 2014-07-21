@@ -1,3 +1,4 @@
+
 package de.mfo.jsurf;
 
 import java.awt.Color;
@@ -18,8 +19,7 @@ public class CanvasImageGenerator implements ImageGenerator
 
     public CanvasImageGenerator(int aSize)
     {
-	this.size= aSize;
-	initCanvas();
+	this.size = aSize;
     }
 
     public CanvasImageGenerator()
@@ -30,25 +30,25 @@ public class CanvasImageGenerator implements ImageGenerator
     {
 	if (canvas == null)
 	{
-	    canvas= Canvas.createIfSupported();
+	    canvas = Canvas.createIfSupported();
 	    canvas.setCoordinateSpaceHeight(size);
 	    canvas.setCoordinateSpaceWidth(size);
-	    RootPanel.get("canvas-container").clear();
-	    RootPanel.get("canvas-container").add(canvas);
-	    context= canvas.getContext2d();
+	    context = canvas.getContext2d();
 	    context.getCanvas().setAttribute("style", "width: 640px; height: 640px;");
-	    imageData= context.createImageData(size, size);
+	    imageData = context.createImageData(size, size);
 	}
     }
 
     public void draw(ImgBuffer imgBuffer, int aSize)
     {
-	for (int x= 0; x < aSize; x++)
+	initCanvas();
+
+	for (int x = 0; x < aSize; x++)
 	{
-	    for (int y= 0; y < aSize; y++)
+	    for (int y = 0; y < aSize; y++)
 	    {
-		int rgb= imgBuffer.rgbBuffer[y * aSize + x];
-		Color color= new Color(rgb);
+		int rgb = imgBuffer.rgbBuffer[y * aSize + x];
+		Color color = new Color(rgb);
 
 		imageData.setAlphaAt(color.getAlpha(), x, y);
 		imageData.setRedAt(color.getRed(), x, y);
@@ -58,11 +58,14 @@ public class CanvasImageGenerator implements ImageGenerator
 	}
 
 	context.putImageData(imageData, 0, 0);
+
+	RootPanel.get("canvas-container").clear();
+	RootPanel.get("canvas-container").add(canvas);
     }
 
     public void startTimerPeriodically(final Runnable runnable, int milliseconds)
     {
-	timer= new Timer()
+	timer = new Timer()
 	{
 	    public void run()
 	    {
@@ -79,7 +82,7 @@ public class CanvasImageGenerator implements ImageGenerator
 
     public void setSize(int size)
     {
-	this.size= size;
+	this.size = size;
 	initCanvas();
     }
 }

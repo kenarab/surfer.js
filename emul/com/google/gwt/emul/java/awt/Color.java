@@ -8,6 +8,11 @@ public class Color
     {
 	value= 0xff000000 | rgb;
     }
+    
+    public Color(float r, float g, float b) 
+    { 
+        this( (int) (r*255+0.5), (int) (g*255+0.5), (int) (b*255+0.5));
+    }
 
     public Color(int r, int g, int b)
     {

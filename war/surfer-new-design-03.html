@@ -156,5 +156,19 @@
         <script src="./surfer-new-design-03_files/main.js"></script>
 
     
+    <script>
+    
+    function renderFrame(count)
+    {
+        	renderSurface (50, 10*count, 10, 60, 230, function ()
+        		{
+        			if (count > 0)
+        				setTimeout(function(){renderFrame(--count);}, 10);
+        				
+        		}
+        	);
+    }
+    
+    </script>
 
 </body></html>

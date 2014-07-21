@@ -21,7 +21,7 @@ import de.mfo.jsurf.util.ServiceLocator;
  * @author stussak
  * @author baranek-petrola
  */
-public class GwtSurferExperiment
+public class GwtSurfer
 {
     static public String platform = "js";
     static int randomSeed = 0;
@@ -37,10 +37,10 @@ public class GwtSurferExperiment
     protected String surfaceId;
 
     protected int currentFrame = 0;
-    protected int startX;
-    protected int startY;
-    protected int endX;
-    protected int endY;
+    protected int startX = 0;
+    protected int startY = 0;
+    protected int endX = 0;
+    protected int endY = 0;
     protected RotateSphericalDragger rsd;
     protected ImageGenerator imageGenerator;
     private double parameterAValue;
@@ -58,7 +58,7 @@ public class GwtSurferExperiment
 
     public static void main(String[] args)
     {
-	GwtSurferExperiment aGWTExperiment = new GwtSurferExperiment();
+	GwtSurfer aGWTExperiment = new GwtSurfer();
 	//For set profiling information in java mode 
 	aGWTExperiment.platform = "java";
 
@@ -70,13 +70,33 @@ public class GwtSurferExperiment
 	    aGWTExperiment.mainStandalone(parameters);
     }
 
-    public GwtSurferExperiment()
+    public GwtSurfer()
     {
 	timeCollector = new TimeCollector();
 	ServiceLocator.getInstance().setMathService(new JsMathService());
     }
 
-    public GwtSurferExperiment(JsCPUAlgebraicSurfaceRenderer renderer)
+    public GwtSurfer(JsCPUAlgebraicSurfaceRenderer renderer, int startX, int startY, int endX, int endY)
+    {
+	this();
+	this.renderer = renderer;
+	this.startX = startX;
+	this.startY = startY;
+	this.endX = endX;
+	this.endY = endY;
+
+	rotation = new Matrix4d();
+	rotation.setIdentity();
+	Matrix4d rotationCopy = new Matrix4d(rotation);
+	rotationCopy.invert();
+	rsd = new RotateSphericalDragger();
+	rsd.setRotation(rotationCopy);
+	rsd.startDrag(new Point(startX, startY));
+	rsd.dragTo(new Point(endX, endY));
+	rotation.invert(rsd.getRotation());
+    }
+
+    public GwtSurfer(JsCPUAlgebraicSurfaceRenderer renderer)
     {
 	this();
 	this.renderer = renderer;
@@ -211,11 +231,7 @@ public class GwtSurferExperiment
 		Matrix4d rotationCopy = new Matrix4d(rotation);
 		rotationCopy.invert();
 		rsd.setRotation(rotationCopy);
-		startX = randomGenerator.nextInt(aSize - 1) + 1;
-		startY = randomGenerator.nextInt(aSize - 1) + 1;
-		float dragMoveResolution = 5;
-		endX = saturate((int) (randomGenerator.nextInt((int) (2 * aSize / dragMoveResolution)) - aSize / dragMoveResolution + startX), 1, aSize);
-		endY = saturate((int) (randomGenerator.nextInt((int) (2 * aSize / dragMoveResolution)) - aSize / dragMoveResolution + startY), 1, aSize);
+		calcDragPoints(aSize);
 	    }
 
 	    int digits = (int) Math.ceil(Math.log10(frames));
@@ -242,6 +258,18 @@ public class GwtSurferExperiment
 	{
 	    currentFrame = 0;
 	    return false;
+	}
+    }
+
+    private void calcDragPoints(int aSize)
+    {
+	if (startX == 0 && startY == 0 && endX == 0 && endY == 0)
+	{
+	    startX = randomGenerator.nextInt(aSize - 1) + 1;
+	    startY = randomGenerator.nextInt(aSize - 1) + 1;
+	    float dragMoveResolution = 5;
+	    endX = saturate((int) (randomGenerator.nextInt((int) (2 * aSize / dragMoveResolution)) - aSize / dragMoveResolution + startX), 1, aSize);
+	    endY = saturate((int) (randomGenerator.nextInt((int) (2 * aSize / dragMoveResolution)) - aSize / dragMoveResolution + startY), 1, aSize);
 	}
     }
 
